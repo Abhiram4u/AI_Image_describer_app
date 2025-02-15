@@ -1,13 +1,17 @@
 import streamlit as st
 import google.generativeai as genai
 from PIL import Image
-#import os
+import os
+API_KEY = os.getenv("API_KEY")  # for  Secure api keys
+# this api key is securely deployed in streamlit community cloud, it will automaticaly inject key to the environment
 
 
-API_KEY = "AIzaSyAq11QwC0uNgC15RhsBpOzsgUvwRFfbZLc"
 
-genai.configure(api_key=API_KEY)
 
+if not API_KEY:
+    st.error("API Key is missing. Please set it in your environment variables.")
+else:
+    genai.configure(api_key=API_KEY)
 
 sys_prompt = """You are an AI model that answers users' questions about an uploaded image.
 Please provide precise, structured, and well-labeled answers with clear details.
