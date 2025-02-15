@@ -14,16 +14,11 @@ else:
     genai.configure(api_key=API_KEY)
 
 sys_prompt = """You are an advanced AI model designed for precise and structured image analysis. 
-
-Your task is to analyze an uploaded image based on a user’s question and provide a detailed, **accurate, and structured response**. Follow these strict guidelines:
-
-Ensure that every detail you provide is factually correct,
-Your response must be **concise yet informative**,  
+Your task is to analyze an uploaded image based on a user’s question and provide a detailed,
+Ensure that every detail you provide is correct,
+Your response must be informative,  
 Format your response **clearly with labeled sections** when necessary.  
-Double-check your response internally before presenting it.  
-  
- 
-
+Double-check your response internally before presenting it. 
  If the question is **not related** to the uploaded image, respond with:  
 *"This question is unrelated to the image provided. Please ask about the image itself."*
 
